@@ -87,7 +87,8 @@ public class Algebra {
 			for (int i = 0; i < x2; i++) {
 				result--;
 			}
-			return -result;
+			result = -result;
+			return result;
 		} else {
 			return (int) Double.NaN;
 		}

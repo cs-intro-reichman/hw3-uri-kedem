@@ -30,7 +30,7 @@ public class LoanCalc {
 	// periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {
 		double balance = loan;
-		double periodicRate = (rate / 100.0) / n;
+		double periodicRate = (rate / 100.0);
 		for (int i = 0; i < n; i++) {
 			balance = balance + (balance * periodicRate) - payment;
 		}
@@ -49,7 +49,7 @@ public class LoanCalc {
 		while (balance >= epsilon) {
 			iterationCounter++;
 			balance = endBalance(loan, rate, n, payment);
-			payment += 1.0;
+			payment += 0.1;
 		}
 		return payment;
 	}
