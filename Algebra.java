@@ -48,9 +48,8 @@ public class Algebra {
 			return result;
 		}
 		if (x1 < 0 && x2 >= 0) {
-			x1 = -x1;
-			for (int i = 0; i < x1; i++) {
-				result--;
+			for (int i = 0; i < x2; i++) {
+				result++;
 			}
 			return result;
 		} else {
@@ -86,7 +85,7 @@ public class Algebra {
 			x1 = -x1;
 			x2 = -x2;
 			for (int i = 0; i < x2; i++) {
-				result++;
+				result--;
 			}
 			return -result;
 		} else {
