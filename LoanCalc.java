@@ -49,7 +49,7 @@ public class LoanCalc {
 		while (balance >= epsilon) {
 			iterationCounter++;
 			balance = endBalance(loan, rate, n, payment);
-			payment += 0.0001;
+			payment += 0.01;
 		}
 		return payment;
 	}

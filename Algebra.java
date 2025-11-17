@@ -26,19 +26,72 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		int result = x1;
-		for (int i = 0; i < x2; i++) {
-			result++;
+		if (x1 >= 0 && x2 >= 0) {
+			for (int i = 0; i < x2; i++) {
+				result++;
+			}
+			return result;
 		}
-		return result;
+		if (x1 < 0 && x2 < 0) {
+			x1 = -x1;
+			x2 = -x2;
+			for (int i = 0; i < x2; i++) {
+				result++;
+			}
+			return -result;
+		}
+		if (x1 >= 0 && x2 < 0) {
+			x2 = -x2;
+			for (int i = 0; i < x2; i++) {
+				result--;
+			}
+			return result;
+		}
+		if (x1 < 0 && x2 >= 0) {
+			x1 = -x1;
+			for (int i = 0; i < x1; i++) {
+				result--;
+			}
+			return result;
+		} else {
+			return (int) Double.NaN;
+		}
+
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		int result = x1;
-		for (int i = 0; i < x2; i++) {
-			result--;
+		if (x1 >= 0 && x2 >= 0) {
+			for (int i = 0; i < x2; i++) {
+				result--;
+			}
+			return result;
 		}
-		return result;
+		if (x1 >= 0 && x2 < 0) {
+			x2 = -x2;
+			for (int i = 0; i < x2; i++) {
+				result--;
+			}
+			return result;
+		}
+		if (x1 < 0 && x2 >= 0) {
+			x1 = -x1;
+			for (int i = 0; i < x2; i++) {
+				result++;
+			}
+			return -result;
+		}
+		if (x1 < 0 && x2 < 0) {
+			x1 = -x1;
+			x2 = -x2;
+			for (int i = 0; i < x2; i++) {
+				result++;
+			}
+			return -result;
+		} else {
+			return (int) Double.NaN;
+		}
 	}
 
 	// Returns x1 * x2
@@ -66,11 +119,15 @@ public class Algebra {
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		int result = x;
-		for (int i = 1; i < n; i++) {
-			result = times(result, x);
+		int result = 1;
+		if (x == 0) {
+			return 0;
+		} else {
+			for (int i = 0; i < n; i++) {
+				result = times(result, x);
+			}
+			return result;
 		}
-		return result;
 	}
 
 	// Returns the integer part of x1 / x2
@@ -143,7 +200,7 @@ public class Algebra {
 	// Returns the integer part of sqrt(x)
 	public static int sqrt(int x) {
 		int result = 0;
-		for (int i = 0; i < x; i++) {
+		for (int i = 0; result < x; i++) {
 			if (times(i, i) == x) {
 				result = i;
 			}
